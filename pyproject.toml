@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "hello-django-vite"
+version = "0.1.0"
+description = ""
+authors = ["David Foster <david.foster@techsmart.codes>"]
+#readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = ">=4.2,<4.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
