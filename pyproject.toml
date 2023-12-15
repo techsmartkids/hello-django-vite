@@ -8,6 +8,7 @@ authors = ["David Foster <david.foster@techsmart.codes>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 Django = ">=4.2,<4.3"
+django-vite = "3.0.1"
 
 [build-system]
 requires = ["poetry-core"]

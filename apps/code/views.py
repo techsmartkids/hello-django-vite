@@ -2,5 +2,5 @@ from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
 
 
-def home(request: HttpRequest) -> HttpResponse:
-    return HttpResponse('OK')
+def code(request: HttpRequest) -> HttpResponse:
+    return render(request, 'code/code.html')

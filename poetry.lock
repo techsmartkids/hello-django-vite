@@ -38,6 +38,23 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-vite"
+version = "3.0.1"
+description = "Integration of Vite in a Django project."
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-vite-3.0.1.tar.gz", hash = "sha256:698977de63124305b0e3cf4afae5f0ffaa5ef041a336b1586b19579787dacb63"},
+    {file = "django_vite-3.0.1-py3-none-any.whl", hash = "sha256:60fbc743ce8187c545053afec0b8fe7f8e1633619c4e0433ebc4dd4f65d0d038"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+
+[package.extras]
+dev = ["black"]
+
+[[package]]
 name = "sqlparse"
 version = "0.4.4"
 description = "A non-validating SQL parser."
@@ -78,4 +95,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "facb047383fe192b5e3f3de08b36089a1c30dd62bf4fe473de24602e194d492b"
+content-hash = "c4c3249ed102b4cef0d1d5c8634a285ae901e8531248171ac177ad18e29abb6d"

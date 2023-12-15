@@ -1,0 +1,22 @@
+{% load django_vite %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% vite_hmr_client %}
+    {# TODO: Get the following asset reference to work #}
+    {# vite_asset 'code/code.js' #}
+
+    <title>Code</title>
+  </head>
+
+  <body>
+    <h1>Code</h1>
+    
+    This is the Code page!
+  </body>
+</html>
