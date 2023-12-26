@@ -108,12 +108,20 @@ USE_I18N = True
 USE_TZ = True
 
 
+# django-vite
+DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'local' / 'static_vite'  # static assets compiled by Vite
+DJANGO_VITE_DEV_MODE = DEBUG
+DJANGO_VITE_DEV_SERVER_HOST = 'localhost'
+DJANGO_VITE_DEV_SERVER_PORT = 3000
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']  # uncompiled static assets
-STATIC_ROOT = BASE_DIR / 'local' / 'static'  # compiled static assets
+STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH]
+STATIC_ROOT = BASE_DIR / 'local' / 'static'  # static assets collected by Django
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

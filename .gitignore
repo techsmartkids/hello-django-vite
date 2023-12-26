@@ -10,3 +10,6 @@ db.sqlite3
 
 # Local
 local
+
+# node
+node_modules
