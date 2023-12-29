@@ -23,4 +23,11 @@ export default defineConfig({
             },
         },
     },
+    resolve: {
+        alias: {
+            // Enable absolute imports like:
+            //     import { ... } from '@ts/app/foo.js';
+            '@ts': resolve('./static'),
+        },
+    },
 });
