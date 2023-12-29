@@ -11,14 +11,19 @@ export default defineConfig({
         host: 'localhost',
         // DJANGO_VITE_DEV_SERVER_PORT
         port: 3000,
+        // Don't open browser on server start
+        open: false,
     },
     build: {
-        manifest: true,
         // DJANGO_VITE_ASSETS_PATH
         outDir: resolve('./local/static_vite'),
+        // Delete old files from output directory
+        emptyOutDir: true,
+        // Generate .vite/manifest.json file, needed by django-vite
+        manifest: true,
         rollupOptions: {
+            // Root .js files referenced by {% vite_asset '__PATH__.js' %}
             input: {
-                // Root .js files referenced by {% vite_asset '__PATH__.js' %}
                 code: resolve('./static/code/code.js'),
             },
         },
