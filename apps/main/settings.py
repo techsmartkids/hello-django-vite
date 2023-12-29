@@ -111,17 +111,14 @@ USE_TZ = True
 # django-vite
 DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'local' / 'static_vite'  # static assets compiled by Vite
 DJANGO_VITE_DEV_MODE = DEBUG
-DJANGO_VITE_DEV_SERVER_HOST = 'localhost'
+DJANGO_VITE_DEV_SERVER_HOST = '127.0.0.1'
 DJANGO_VITE_DEV_SERVER_PORT = 3000
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    DJANGO_VITE_ASSETS_PATH,
-    BASE_DIR / 'static',
-]
+STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH]
 STATIC_ROOT = BASE_DIR / 'local' / 'static'  # static assets collected by Django
 
 # Default primary key field type

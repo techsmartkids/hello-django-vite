@@ -8,9 +8,11 @@ export default defineConfig({
     base: '/static/',
     server: {
         // DJANGO_VITE_DEV_SERVER_HOST
-        host: 'localhost',
+        host: '127.0.0.1',
         // DJANGO_VITE_DEV_SERVER_PORT
         port: 3000,
+        // Domain of generated asset URLs during development
+        origin: 'http://127.0.0.1:3000',
         // Don't open browser on server start
         open: false,
     },
