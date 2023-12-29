@@ -6,12 +6,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Code</title>
 
     {% vite_hmr_client %}
     
     {% vite_asset 'code/code.js' %}
-
-    <title>Code</title>
+    
+    {# TODO: Figure out how to link to CSS as a regular CSS file #} 
+    {#       and not as a JS module that injects CSS. #}
+    {% vite_asset 'code/code.css' %}
+    <!-- <link rel="stylesheet" src="{% vite_asset_url 'code/code.css' %}" /> -->
   </head>
 
   <body>
@@ -19,6 +24,27 @@
     
     <p>This is the Code page!</p>
     
-    <img src="{% vite_asset_url 'code/imgs/boulderjoy.png' %}" />
+    <h3 id="ts-project-panel-heading">Project Panel</h3>
+    (nothing here yet)
+    
+    <h3>Image references</h3>
+    <table>
+      <tr>
+        <td>
+          <img src="{% vite_asset_url 'code/imgs/boulderjoy.png' %}" />
+        </td>
+        <td>
+          <div id="ts-css-image"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          HTML
+        </td>
+        <td>
+          CSS
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

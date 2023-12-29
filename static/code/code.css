@@ -1,3 +1,17 @@
 h1 {
     color: darkblue;
 }
+
+table, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+td {
+    padding: 5px;
+}
+
+#ts-css-image {
+    width: 177px;
+    height: 246px;
+    background-image: url('@ts/code/imgs/boulderjoy.png');
+}

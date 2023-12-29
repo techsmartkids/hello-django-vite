@@ -118,7 +118,10 @@ DJANGO_VITE_DEV_SERVER_PORT = 3000
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH]
+STATICFILES_DIRS = [
+    DJANGO_VITE_ASSETS_PATH,
+    BASE_DIR / 'static',
+]
 STATIC_ROOT = BASE_DIR / 'local' / 'static'  # static assets collected by Django
 
 # Default primary key field type
