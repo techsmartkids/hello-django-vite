@@ -5,7 +5,7 @@ export default defineConfig({
     // Source of assets to be compiled by Vite
     root: resolve('./static'),
     // STATIC_URL
-    base: '/static/',
+    base: 'http://127.0.0.1:3000/static/',
     server: {
         // DJANGO_VITE_DEV_SERVER_HOST
         host: '127.0.0.1',
@@ -24,9 +24,13 @@ export default defineConfig({
         // Generate .vite/manifest.json file, needed by django-vite
         manifest: true,
         rollupOptions: {
-            // Root .js files referenced by {% vite_asset '__PATH__.js' %}
+            // Files referenced by any {% vite_asset '__PATH__' %}
+            // or any {% vite_asset_url '__PATH__' %}
+            // 
+            // Keys do not matter, so long as they are unique.
             input: {
                 code: resolve('./static/code/code.js'),
+                boulderjoy: resolve('./static/code/imgs/boulderjoy.png'),
             },
         },
     },

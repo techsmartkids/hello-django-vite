@@ -13,10 +13,12 @@
     
     {% vite_asset 'code/code.js' %}
     
+    {# TODO: Figure out how to link to CSS directly in HTML #}
+    {#       that also works when DEBUG=False #}
     {# TODO: Figure out how to link to CSS as a regular CSS file #} 
     {#       and not as a JS module that injects CSS. #}
-    {% vite_asset 'code/code.css' %}
-    <!-- <link rel="stylesheet" src="{% vite_asset_url 'code/code.css' %}" /> -->
+    {# vite_asset 'code/code.css' #}
+    <!-- <link rel="stylesheet" src="{# vite_asset_url 'code/code.css' #}" /> -->
   </head>
 
   <body>
@@ -31,6 +33,8 @@
     <table>
       <tr>
         <td>
+          {# TODO: Figure out how to link to image directly in HTML #}
+          {#       that also works when DEBUG=False #}
           <img src="{% vite_asset_url 'code/imgs/boulderjoy.png' %}" />
         </td>
         <td>
