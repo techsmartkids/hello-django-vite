@@ -34,6 +34,9 @@ ALLOWED_HOSTS = [
 
 # Application definition
 INSTALLED_APPS = [
+    # Main module
+    'apps.main',
+    
     # Django builtin
     'django.contrib.admin',
     'django.contrib.auth',
