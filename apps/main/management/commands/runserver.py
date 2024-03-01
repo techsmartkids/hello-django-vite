@@ -65,7 +65,7 @@ def _run_vite_process(cleanups: ExitStack):
     if settings.DJANGO_VITE_DEV_MODE:
         # Run Vite dev server
         serve_assets_process = subprocess.Popen(
-            [settings.BASE_DIR / 'node_modules' / '.bin' / 'vite'],
+            [settings.BASE_DIR / 'node_modules' / '.bin' / 'vite', '--clearScreen=false'],
             cwd=settings.BASE_DIR)
     else:
         # Build production assets using Vite
