@@ -31,6 +31,7 @@ export default defineConfig({
             input: {
                 code: resolve('./static/code/code.js'),
                 boulderjoy: resolve('./static/code/imgs/boulderjoy.png'),
+                skylarklogo: resolve('./static/code/imgs/skylark-logomark-color.svg'),
             },
         },
     },

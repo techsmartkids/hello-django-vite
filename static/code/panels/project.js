@@ -6,11 +6,16 @@ import '@ts/code/panels/project.css';
 
 // URLs for assets (like images) can be imported in JS directly.
 import boulderImageUrl from '@ts/code/imgs/boulderjoy.png';
+import skylarkImageUrl from '@ts/code/imgs/skylark-logomark-color.svg';
 
 export function setupProjectPanel() {
     console.log('setupProjectPanel called');
     
-    const imageDom = document.createElement('img');
-    imageDom.src = boulderImageUrl;
-    document.querySelector('#ts-js-image').appendChild(imageDom);
+    const imageDom1 = document.createElement('img');
+    imageDom1.src = boulderImageUrl;
+    document.querySelector('#ts-png-js-image').appendChild(imageDom1);
+    
+    const imageDom2 = document.createElement('img');
+    imageDom2.src = skylarkImageUrl;
+    document.querySelector('#ts-svg-js-image').appendChild(imageDom2);
 }

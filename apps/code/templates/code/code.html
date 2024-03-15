@@ -1,4 +1,5 @@
 {% load django_vite %}
+{% load env %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,27 +33,44 @@
     <h3>Image references</h3>
     <table>
       <tr>
+        <th>
+        </th>
+        <th>
+          HTML
+        </th>
+        <th>
+          CSS
+        </th>
+        <th>
+          JS
+        </th>
+      </tr>
+      <tr>
         <td>
-          {# TODO: Figure out how to link to image directly in HTML #}
-          {#       that also works when DEBUG=False #}
+          .png, .jpg
+        </td>
+        <td>
           <img src="{% vite_asset_url 'code/imgs/boulderjoy.png' %}" />
         </td>
         <td>
-          <div id="ts-css-image"></div>
+          <div id="ts-png-css-image"></div>
         </td>
         <td>
-          <div id="ts-js-image"></div>
+          <div id="ts-png-js-image"></div>
         </td>
       </tr>
       <tr>
         <td>
-          HTML
+          .svg
         </td>
         <td>
-          CSS
+          <img src="{% vite_asset_url 'code/imgs/skylark-logomark-color.svg' %}" />
         </td>
         <td>
-          JS
+          <div id="ts-svg-css-image"></div>
+        </td>
+        <td>
+          <div id="ts-svg-js-image"></div>
         </td>
       </tr>
     </table>
