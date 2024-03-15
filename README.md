@@ -57,10 +57,9 @@ You should see a webpage that looks something like this:
         * 2. start the Django development server on port :8000.
     * When a request is made for a page on Django's :8000 port (such as <http://127.0.0.1:8000/code/>), Django renders the appropriate HTML template itself (ex: `code/code.html`).
         * The HTML template includes the **root JS file** via a `<script src=...>` inserted by the `{% vite_asset 'code/code.js' %}` tag.
-        * The HTML template may NOT include **CSS files** directly, due to current infrastructure limitations. Any required CSS files will be injected by the root JS file to the DOM as an inline `<style>...</style>` tag once the JS loads.
+        * The HTML template may NOT include **CSS files** directly, due to [current infrastructure limitations]. Any required CSS files will be injected by the root JS file to the DOM as an inline `<style>...</style>` tag once the JS loads.
             * The specific CSS code to inject is gathered from all JS→CSS imports that are reachable from the root JS file. These imports look like `import '@ts/code/code.css';`
         * The HTML template may refer to **raster image assets** (`.png` or `.jpg`) directly in HTML using code like `<img src="{% vite_asset_url 'code/imgs/boulderjoy.png' %}" />`.
-        * The HTML template may NOT refer to **`.svg` image assets** directly in HTML, due to current infrastructure limitations.
     * The served HTML contains links to `.js` files and raster image files (`.png` or `.jpg`) that are served by the Vite development server on port :3000.
     * When the Vite development server receives a request to serve:
         * ...a `.js` file, it will build the associated JS bundle on-demand and serve it.
@@ -74,3 +73,49 @@ You should see a webpage that looks something like this:
     * The served HTML contains links to `.js` files and raster image files (`.png` or `.jpg`) that are served by the [http-server] static file server on port :3000.
 
 [http-server]: https://www.npmjs.com/package/http-server
+[current infrastructure limitations]: #known-limitations
+
+
+## Ways to Reference Assets
+
+* .py → .html
+    * ✅ `return render(request, 'code/code.html', { ... })`
+* .html → ...
+    * .html → .js (root)
+        * ✅ `{% vite_asset 'code/code.js' %}`
+    * .html → .css
+        * ✖️ Not possible
+    * .html → .jpg, .png, .svg
+        * ✅ `<img src="{% vite_asset_url 'code/imgs/boulderjoy.png' %}" />`
+            * A special patch to the `django_vite` library
+              (by `apply_django_vite_patches.py`) was needed to support
+              referencing these non-.js assets from .html when running the
+              production server with DJANGO_DEBUG=False.
+* .js → ...
+    * .js → .js
+        * ✅ `import { ... } from '@ts/code/panels/project.js';`
+    * .js → .css
+        * ✅ `import '@ts/code/panels/project.css';`
+    * .js → .png, .jpg (for image URL)
+        * ✅ `import boulderImageUrl from '@ts/code/imgs/boulderjoy.png';`
+    * .js → .svg (for image URL)
+        * ✅ `import skylarkImageUrl from '@ts/code/imgs/skylark-logomark-color.svg';`
+* .css → ...
+    * .css → .jpg, .png, .svg
+        * ✅ `url('@ts/code/imgs/boulderjoy.png')`
+
+<a name="known-limitations"></a>
+## Known Limitations
+
+> Key:
+> * 👌 = A acceptable limitation
+> * 🤔 = A limitation that would be nice to eliminate
+
+* 👌 .html → .css imports
+    * These imports are not possible.
+    * Any such imports must be migrated from the .html file to an appropriate .js file that is itself imported (probably indirectly) from the .html page.
+* 🤔 .js → .css imports
+    * In development, each imported .css file is injected into the DOM of the page using an *inline* `<style>` tag, so **the filename and line numbers are not available** from the original .css file.
+    * In production, the single concatenated .css file is injected into the DOM of the page using a `<link rel="stylesheet" src="..." />` reference. However that .css file does not have an associated sourcemap so **line numbers are not available**.
+* 🤔 App-specific `static` directories cannot be used. Only a central `static` directory currently works.
+    * This limitation is annoying because it forces .js files to live separately from .css and image files in the source code.
