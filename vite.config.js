@@ -40,6 +40,14 @@ export default defineConfig({
             // Enable absolute imports like:
             //     import { ... } from '@ts/app/foo.js';
             '@ts': resolve('./static'),
+            
+            // Libraries
+            'jquery': resolve('./node_modules/jquery/dist/jquery.js'),
+            'mdl': resolve('./node_modules/material-design-lite/dist/material.js'),
+            'mdl-css': resolve('./node_modules/material-design-lite/dist/material.css'),
+            'vue': resolve('./node_modules/vue/dist/vue.esm-browser.js'),
+            'backbone': resolve('./node_modules/backbone/backbone.js'),
+            'underscore': resolve('./node_modules/underscore/underscore.js'),
         },
     },
 });
