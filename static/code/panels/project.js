@@ -11,7 +11,7 @@ import skylarkImageUrl from '@ts/code/imgs/skylark-logomark-color.svg';
 // Import libraries
 import $ from 'jquery';
 import 'mdl';
-import 'mdl-css';
+//import 'mdl-css';  // overrides regular styles like h1
 import * as Vue from 'vue';
 import moment from 'moment';
 import Backbone from 'backbone';
