@@ -4,7 +4,7 @@ This Django project is a prototype that shows how to integrate Django with Vite,
 
 [django-vite]: https://pypi.org/project/django-vite/
 
-It is structured at the filesystem level in a similar way as TechSmart's Platform codebase at [tsk-website], to hopefully make it easier to integrate elements of the prototype directly into the Platform.
+It is structured at the filesystem level in a similar way as TechSmart's Platform codebase (which uses both Django and Vite), to hopefully make it easier to integrate elements of the prototype directly into the Platform.
 
 [tsk-website]: https://github.com/techsmartkids/tsk-website
 
