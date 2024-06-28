@@ -30,8 +30,8 @@ export default defineConfig({
             // Keys do not matter, so long as they are unique.
             input: {
                 code: resolve('./static/code/code.js'),
-                boulderjoy: resolve('./static/code/imgs/boulderjoy.png'),
-                skylarklogo: resolve('./static/code/imgs/skylark-logomark-color.svg'),
+                boulder: resolve('./static/code/imgs/boulder.jpg'),
+                logomark: resolve('./static/code/imgs/logomark.svg'),
             },
         },
     },

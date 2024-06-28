@@ -11,13 +11,13 @@ td {
 }
 
 #ts-png-css-image {
-    width: 177px;
+    width: 182px;
     height: 246px;
-    background-image: url('@ts/code/imgs/boulderjoy.png');
+    background-image: url('@ts/code/imgs/boulder.jpg');
 }
 
 #ts-svg-css-image {
-    width: 177px;
-    height: 216px;
-    background-image: url('@ts/code/imgs/skylark-logomark-color.svg');
+    width: 182px;
+    height: 209px;
+    background-image: url('@ts/code/imgs/logomark.svg');
 }

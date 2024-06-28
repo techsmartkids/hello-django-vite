@@ -5,8 +5,8 @@
 import '@ts/code/panels/project.css';
 
 // URLs for assets (like images) can be imported in JS directly.
-import boulderImageUrl from '@ts/code/imgs/boulderjoy.png';
-import skylarkImageUrl from '@ts/code/imgs/skylark-logomark-color.svg';
+import boulderImageUrl from '@ts/code/imgs/boulder.jpg';
+import logomarkImageUrl from '@ts/code/imgs/logomark.svg';
 
 // Import libraries
 import $ from 'jquery';
@@ -25,7 +25,7 @@ export function setupProjectPanel() {
     document.querySelector('#ts-png-js-image').appendChild(imageDom1);
     
     const imageDom2 = document.createElement('img');
-    imageDom2.src = skylarkImageUrl;
+    imageDom2.src = logomarkImageUrl;
     document.querySelector('#ts-svg-js-image').appendChild(imageDom2);
     
     // Ensure libraries work
