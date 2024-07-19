@@ -59,7 +59,7 @@ You should see a webpage that looks something like this:
         * The HTML template includes the **root JS file** via a `<script src=...>` inserted by the `{% vite_asset 'code/code.js' %}` tag.
         * The HTML template may NOT include **CSS files** directly, due to [current infrastructure limitations]. Any required CSS files will be injected by the root JS file to the DOM as an inline `<style>...</style>` tag once the JS loads.
             * The specific CSS code to inject is gathered from all JS→CSS imports that are reachable from the root JS file. These imports look like `import '@ts/code/code.css';`
-        * The HTML template may refer to **raster image assets** (`.png` or `.jpg`) directly in HTML using code like `<img src="{% vite_asset_url 'code/imgs/boulderjoy.png' %}" />`.
+        * The HTML template may refer to **raster image assets** (`.png` or `.jpg`) directly in HTML using code like `<img src="{% vite_asset_url 'code/imgs/boulder.jpg' %}" />`.
     * The served HTML contains links to `.js` files and raster image files (`.png` or `.jpg`) that are served by the Vite development server on port :3000.
     * When the Vite development server receives a request to serve:
         * ...a `.js` file, it will build the associated JS bundle on-demand and serve it.
@@ -86,7 +86,7 @@ You should see a webpage that looks something like this:
     * .html → .css
         * ✖️ Not possible
     * .html → .jpg, .png, .svg
-        * ✅ `<img src="{% vite_asset_url 'code/imgs/boulderjoy.png' %}" />`
+        * ✅ `<img src="{% vite_asset_url 'code/imgs/boulder.jpg' %}" />`
             * A special patch to the `django_vite` library
               (by `apply_django_vite_patches.py`) was needed to support
               referencing these non-.js assets from .html when running the
@@ -97,12 +97,12 @@ You should see a webpage that looks something like this:
     * .js → .css
         * ✅ `import '@ts/code/panels/project.css';`
     * .js → .png, .jpg (for image URL)
-        * ✅ `import boulderImageUrl from '@ts/code/imgs/boulderjoy.png';`
+        * ✅ `import boulderImageUrl from '@ts/code/imgs/boulder.jpg';`
     * .js → .svg (for image URL)
-        * ✅ `import skylarkImageUrl from '@ts/code/imgs/skylark-logomark-color.svg';`
+        * ✅ `import logomarkImageUrl from '@ts/code/imgs/logomark.svg';`
 * .css → ...
     * .css → .jpg, .png, .svg
-        * ✅ `url('@ts/code/imgs/boulderjoy.png')`
+        * ✅ `url('@ts/code/imgs/boulder.jpg')`
 
 <a name="known-limitations"></a>
 ## Known Limitations
