@@ -57,7 +57,7 @@ You should see a webpage that looks something like this:
         * 2. start the Django development server on port :8000.
     * When a request is made for a page on Django's :8000 port (such as <http://127.0.0.1:8000/code/>), Django renders the appropriate HTML template itself (ex: `code/code.html`).
         * The HTML template includes the **root JS file** via a `<script src=...>` inserted by the `{% vite_asset 'code/code.js' %}` tag.
-        * The HTML template may NOT include **CSS files** directly, due to [current infrastructure limitations]. Any required CSS files will be injected by the root JS file to the DOM as an inline `<style>...</style>` tag once the JS loads.
+        * The HTML template may NOT include **CSS files** directly, due to [current infrastructure limitations]. Any required CSS files will be injected by the root JS file to the DOM as an inline `<style>...</style>` tag once the JS loads. It will contain a CSS sourcemap so that it can be associated with the original .css file in browser dev tools.
             * The specific CSS code to inject is gathered from all JS→CSS imports that are reachable from the root JS file. These imports look like `import '@ts/code/code.css';`
         * The HTML template may refer to **raster image assets** (`.png` or `.jpg`) directly in HTML using code like `<img src="{% vite_asset_url 'code/imgs/boulder.jpg' %}" />`.
     * The served HTML contains links to `.js` files and raster image files (`.png` or `.jpg`) that are served by the Vite development server on port :3000.
@@ -107,15 +107,15 @@ You should see a webpage that looks something like this:
 <a name="known-limitations"></a>
 ## Known Limitations
 
-> Key:
-> * 👌 = A acceptable limitation
+> Key:  
+> * 👌 = A acceptable limitation  
 > * 🤔 = A limitation that would be nice to eliminate
 
 * 👌 .html → .css imports
     * These imports are not possible.
     * Any such imports must be migrated from the .html file to an appropriate .js file that is itself imported (probably indirectly) from the .html page.
-* 🤔 .js → .css imports
-    * In development, each imported .css file is injected into the DOM of the page using an *inline* `<style>` tag, so **the filename and line numbers are not available** from the original .css file.
+* 👌 .js → .css imports
     * In production, the single concatenated .css file is injected into the DOM of the page using a `<link rel="stylesheet" src="..." />` reference. However that .css file does not have an associated sourcemap so **line numbers are not available**.
+        * This limitation is no-worse than using another kind of concatenating bundler, such as Django Compressor.
 * 🤔 App-specific `static` directories cannot be used. Only a central `static` directory currently works.
     * This limitation is annoying because it forces .js files to live separately from .css and image files in the source code.

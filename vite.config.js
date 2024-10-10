@@ -35,6 +35,11 @@ export default defineConfig({
             },
         },
     },
+    css: {
+        // Enable development CSS source maps,
+        // so that each inserted <style> block is associated with a .css file
+        devSourcemap: true,
+    },
     resolve: {
         alias: {
             // Enable absolute imports like:
