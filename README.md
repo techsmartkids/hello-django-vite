@@ -20,6 +20,7 @@ Install the prerequisites:
 In terminal window 1, install dependencies and apply patches:
 
 ```
+$ npm install
 $ poetry shell
 $$ poetry install --no-root
 $$ python3 apps/tools/vite/apply_django_vite_patches.py
