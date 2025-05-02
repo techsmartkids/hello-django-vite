@@ -12,7 +12,7 @@ It is structured at the filesystem level in a similar way as TechSmart's Platfor
 
 Install the prerequisites:
 
-* [Python 3.10+](https://www.python.org/downloads/)
+* [Python 3.12+](https://www.python.org/downloads/)
 * Poetry
     * `python3 -m pip install pipx`
     * `python3 -m pipx install "poetry>=1.7,<1.8"`
@@ -22,7 +22,7 @@ In terminal window 1, install dependencies and apply patches:
 ```
 $ npm install
 $ poetry shell
-$$ poetry install --no-root
+$$ poetry install
 $$ python3 apps/tools/vite/apply_django_vite_patches.py
 ```
 
