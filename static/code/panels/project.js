@@ -17,6 +17,9 @@ import moment from 'moment';
 import Backbone from 'backbone';
 import _ from 'underscore';
 
+// Import Vue SFC root app
+import App from '@ts/code/App.vue';
+
 export function setupProjectPanel() {
     console.log('setupProjectPanel called');
     
@@ -45,6 +48,9 @@ export function setupProjectPanel() {
             Vue.createApp({
                 template: 'OK',
             }).mount('#ts-libref-vue__status');
+            
+            // Ensure Vue SFC works
+            Vue.createApp(App).mount('#ts-libref-vue-sfc__status');
         }
         
         // Ensure Moment works
