@@ -5,7 +5,9 @@
         "prod": "vite build"
     },
     "devDependencies": {
-        "vite": "^6.3.4"
+        "vite": "^6.3.4",
+        "@vitejs/plugin-vue": "^5.2.3",
+        "vite-plugin-vue-devtools": "^7.7.2"
     },
     "dependencies": {
         "backbone": "^1.3.3",
