@@ -22,4 +22,8 @@ function didClick() {
   <button @click="didClick">Click me!</button>
 </template>
 
-<style scoped></style>
+<style scoped>
+button {
+    border: 4px solid purple;
+}
+</style>
