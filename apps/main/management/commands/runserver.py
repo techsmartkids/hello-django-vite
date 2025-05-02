@@ -62,7 +62,7 @@ class Command(RunserverCommand):  # type: ignore  # too advanced for mypy
 
 
 def _run_vite_process(cleanups: ExitStack):
-    if settings.DJANGO_VITE_DEV_MODE:
+    if settings.DJANGO_VITE['default']['dev_mode']:
         # Run Vite dev server
         serve_assets_process = subprocess.Popen(
             [settings.BASE_DIR / 'node_modules' / '.bin' / 'vite', '--clearScreen=false'],
@@ -76,7 +76,7 @@ def _run_vite_process(cleanups: ExitStack):
         
         # Collect Vite-built assets and other Django assets to static directory
         subprocess.run(
-            [sys.executable, 'manage.py', 'collectstatic', '--no-input'],
+            [sys.executable, 'manage.py', 'collectstatic', '--clear', '--no-input'],
             cwd=settings.BASE_DIR,
             check=True)
         

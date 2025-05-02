@@ -114,13 +114,15 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-
 # django-vite
+DJANGO_VITE = {
+    'default': {
+        'dev_mode': DEBUG,
+        'dev_server_host': '127.0.0.1',
+        'dev_server_port': 3000
+    }
+}
 DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'local' / 'static_vite'  # static assets compiled by Vite
-DJANGO_VITE_DEV_MODE = DEBUG
-DJANGO_VITE_DEV_SERVER_HOST = '127.0.0.1'
-DJANGO_VITE_DEV_SERVER_PORT = 3000
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

@@ -27,8 +27,13 @@ export default defineConfig({
         outDir: resolve('./local/static_vite'),
         // Delete old files from output directory
         emptyOutDir: true,
-        // Generate .vite/manifest.json file, needed by django-vite
-        manifest: true,
+        // Generate manifest.json file, needed by django-vite
+        // NOTE: manage.py collectstatic ignores hidden files by default.
+        //       We set 'manifest.json' here to override the default
+        //       manifest location ({outdir}/.vite/manifest.json) so that
+        //       the manifest will be available to django-vite, which looks
+        //       for it in the /static/ dir.
+        manifest: 'manifest.json',
         rollupOptions: {
             // Files referenced by any {% vite_asset '__PATH__' %}
             // or any {% vite_asset_url '__PATH__' %}
